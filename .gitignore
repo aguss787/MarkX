@@ -5,6 +5,8 @@ project/
 target/
 build/
 
+!project/assembly.sbt
+
 # eclipse
 build
 .classpath
