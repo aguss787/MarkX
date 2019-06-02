@@ -18,6 +18,7 @@ case class Superscript(content: FormattedString) extends FormattedString
 case class Code(content: FormattedString) extends FormattedString
 case class Bold(content: FormattedString) extends FormattedString
 case class Italic(content: FormattedString) extends FormattedString
+case class Image(url: FormattedString) extends FormattedString
 case class Char(char: Character) extends FormattedString {
   override def toString: String = if (char == '\r') "" else char.toString
 }

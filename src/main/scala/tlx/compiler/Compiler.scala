@@ -22,6 +22,7 @@ object Compiler {
       case Code(x) => code(compile(x))
       case Bold(x) => bold(compile(x))
       case Italic(x) => italic(compile(x))
+      case Image(x) => img(compile(x))
       case _ => formattedString.toString
     }
   }

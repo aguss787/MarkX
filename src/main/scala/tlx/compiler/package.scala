@@ -22,6 +22,11 @@ package object compiler {
 
   def pre(content: String): String = htmlTag(content, "pre")
 
+  def img(rawUrl: String): String = {
+    val url = if (rawUrl.startsWith("http://") || rawUrl.startsWith("https://")) rawUrl else s"render/$rawUrl"
+    s"<img src=$url width=300px />"
+  }
+
   def unorderedList(content: String): String = htmlTag(content, "ul")
 
   def listItem(content: String): String = htmlTag(content, "li")
