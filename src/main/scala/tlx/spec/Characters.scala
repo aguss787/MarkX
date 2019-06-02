@@ -13,7 +13,7 @@ object Characters {
   def escapeChar[_: P]: P[Unit] = P("\\")
   def openCurlyBracket[_: P]: P[Char] = P("{").!.map(str => Char(str.charAt(0)))
   def closeCurlyBracket[_: P]: P[Char] = P("}").!.map(str => Char(str.charAt(0)))
-  def reservedChar[_: P]: P[Any] = P(CharIn("\\`") | escapeChar | superscriptStart | subscriptStart | openCurlyBracket | closeCurlyBracket)
+  def reservedChar[_: P]: P[Any] = P(escapeChar)
   def regularChar[_: P]: P[Char] = P(!reservedChar ~ AnyChar).!.map(str => Char(str.charAt(0)))
   def escapedChar[_: P]: P[Char] = P("\\" ~ AnyChar.!).map(str => Char(str.charAt(0)))
 

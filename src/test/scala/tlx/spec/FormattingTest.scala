@@ -263,9 +263,8 @@ class FormattingTest extends FlatSpec {
         FString(Seq(
           Code(FString(Seq(
             Char('b'),
-            Subscript(FString(Seq(
-              Char('1'),
-            )))
+            Char('_'),
+            Char('1'),
           ))),
           Char(' '),
           Char('a'),

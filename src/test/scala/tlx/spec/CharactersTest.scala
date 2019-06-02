@@ -15,10 +15,6 @@ class CharactersTest extends FlatSpec {
     )
   }
 
-  "char" should "not parse reserved char" in {
-    parse("_bc", regularChar(_)) shouldBe a[Parsed.Failure]
-  }
-
   "escaped char" should "be able parse reserved char (example: underscore)" in {
     parse("\\_bc", escapedChar(_)) should equal (
       Parsed.Success(
