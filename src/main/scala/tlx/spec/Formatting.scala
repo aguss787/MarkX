@@ -6,7 +6,7 @@ import SingleLineWhitespace._
 
 object Formatting {
   def suberStop[_: P]: P[AnyVal] = P("," | "(" | ")" | "{" | "}" | superscriptStart | subscriptStart | inLineWhiteSpaces | endLines)
-  def suberText[_: P]: P[FString] = P(!suberStop ~~ char).repX(0).map(FString)
+  def suberText[_: P]: P[FString] = P(!suberStop ~~ formattedToken).repX(0).map(FString)
 
   def formattedCurlyBracketText[_: P]: P[FormattedString] = (!P("}") ~~ formattedToken).repX(0).map(FString)
   def bracketSubscript[_: P]: P[Subscript] = P(subscriptStart ~~ openCurlyBracket ~~ formattedCurlyBracketText ~~ closeCurlyBracket ).map(x => Subscript(x._2))

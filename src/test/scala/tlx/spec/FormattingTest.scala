@@ -123,7 +123,7 @@ class FormattingTest extends FlatSpec {
   }
 
   "sub/superscript combination" should "not stack" in {
-    parse("_a^b", formattedString(_)) should equal(
+    parse("_a^b_c", formattedString(_)) should equal(
       Parsed.Success(
         FString(Seq(
           Subscript(FString(Seq(
@@ -132,8 +132,11 @@ class FormattingTest extends FlatSpec {
           Superscript(FString(Seq(
             Char('b'),
           ))),
+          Subscript(FString(Seq(
+            Char('c'),
+          ))),
         )),
-        4
+        6
       )
     )
   }
@@ -150,6 +153,52 @@ class FormattingTest extends FlatSpec {
           ))),
         )),
         4
+      )
+    )
+  }
+
+  "super/subscript with bracket" should "stack" in {
+    parse("^{a_b}", formattedString(_)) should equal(
+      Parsed.Success(
+        FString(Seq(
+          Superscript(FString(Seq(
+            Char('a'),
+            Subscript(FString(Seq(
+              Char('b'),
+            ))),
+          ))),
+        )),
+        6
+      )
+    )
+  }
+
+  "super/code with bracket" should "stack" in {
+    parse("^{`a_b`}", formattedString(_)) should equal(
+      Parsed.Success(
+        FString(Seq(
+          Superscript(FString(Seq(Code(FString(Seq(
+            Char('a'),
+            Char('_'),
+            Char('b'),
+          )))))),
+        )),
+        8
+      )
+    )
+  }
+
+  "super/code" should "stack" in {
+    parse("^`a_b`", formattedString(_)) should equal(
+      Parsed.Success(
+        FString(Seq(
+          Superscript(FString(Seq(Code(FString(Seq(
+            Char('a'),
+            Char('_'),
+            Char('b'),
+          )))))),
+        )),
+        6
       )
     )
   }
