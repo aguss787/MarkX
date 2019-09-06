@@ -1,0 +1,64 @@
+[Judul] 
+
+[Format Masukan] 
+bla bla...
+
+[Format Keluaran]  
+bla bla...
+
+[Format Interaksi] 
+bla bla...
+
+[Contoh Masukan]  
+input_1
+input_1
+
+input_2
+input_2
+
+[Contoh Keluaran] 
+input_1
+input_1
+
+input_2
+input_2
+
+[Contoh Interaksi]
+
+input_1
+input_1
+    output_1
+    output_1
+input_2
+    output_2
+    
+<hasilnya>: 
+|Keluaran Anda|Keluaran Juri|
+|input_1|        |
+|input_1|        |
+|       |output_1|
+|       |output_1|
+|input_2|        |
+|       |output_2|
+    
+    
+[video di sini]@linkYoutube
+[skeleton di sini]@linkTLX
+@gambar.jpg
+    -> ambil gambar dari link_internal/gambar.jpg
+    
+[gambar dengan alt]@gambar.png
+    -> ambil gambar dari link_internal/gambar.png
+
+[gambar ini ada linknya]@image
+
+@links:
+linkYoutube: http://youtube.com
+linkTLX: skeleton.zip
+image: http://asdf
+
+@images:
+image: gambar.jpg
+
+
+
